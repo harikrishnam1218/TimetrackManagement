@@ -1,0 +1,26 @@
+CREATE DATABASE IF NOT EXISTS EmployeeData;
+use EmployeeData;
+CREATE TABLE employee (
+    eid INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+ 
+   designation VARCHAR(255) NOT NULL,
+    onboardloc VARCHAR(255) NOT NULL,
+  
+  onboarddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE timetrackaudit (
+    tid INT AUTO_INCREMENT ,
+    name VARCHAR(255) NOT NULL,
+  date Date NOT NULL,
+    status  VARCHAR(255) NOT NULL,
+    swipein TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ 
+   swipeout TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    eid INT NOT NULL,
+    PRIMARY KEY (tid),
+ 
+   FOREIGN KEY (eid) REFERENCES  employee(eid)
+);
