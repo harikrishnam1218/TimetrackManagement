@@ -26,16 +26,16 @@ public class EmployeeRepoImpl implements EmployeeRepo {
 
 	@Override
 	public int save(Employee employee) {
-		return jdbcTemplate.update("insert into employee ( name, onboardloc, designation,onboarddate) " + "values(?,?,?,?)",
+		return jdbcTemplate.update("insert into employee ( name, onboardloc, designation,onboarddate,role) " + "values(?,?,?,?)",
 	            new Object[] { employee.getName(), employee.getOnboardloc(), employee.getDesignation(),
-	                employee.getOnboarddate()});
+	                employee.getOnboarddate(),employee.getRole()});
 	}
 
 	@Override
 	public int update(Employee employee) {
-		 return jdbcTemplate.update("update employee " + " set name = ?,onboardloc = ?, designation = ?  " + " where eid = ?",
+		 return jdbcTemplate.update("update employee " + " set name = ?,onboardloc = ?, designation = ?,role=?  " + " where eid = ?",
 		            new Object[] {
-		                employee.getName(),  employee.getOnboardloc(),employee.getDesignation(), employee.getEid()
+		                employee.getName(),  employee.getOnboardloc(),employee.getDesignation(),employee.getRole(), employee.getEid()
 		                });
 	}
 	
@@ -48,14 +48,10 @@ public class EmployeeRepoImpl implements EmployeeRepo {
 	            employee.setOnboardloc(rs.getString("onboardloc"));
 	            employee.setOnboarddate((Date)rs.getDate("onboarddate"));
 	            employee.setDesignation(rs.getString("designation"));
+	            employee.setRole(rs.getString("role"));
 	            return employee;
 	        }
 	    }
 	 
-	 private Long eid;
-		private String name;
-		private String onboardloc;
-		private String designation;
-		private Date onboarddate;
 
 }

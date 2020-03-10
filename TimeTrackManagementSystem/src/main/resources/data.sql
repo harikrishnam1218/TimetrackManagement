@@ -3,10 +3,9 @@ use EmployeeData;
 CREATE TABLE employee (
     eid INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
- 
+	role  VARCHAR(255) NOT NULL,
    designation VARCHAR(255) NOT NULL,
     onboardloc VARCHAR(255) NOT NULL,
-  
   onboarddate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

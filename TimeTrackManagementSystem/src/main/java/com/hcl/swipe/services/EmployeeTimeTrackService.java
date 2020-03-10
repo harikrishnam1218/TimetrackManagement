@@ -1,5 +1,9 @@
 package com.hcl.swipe.services;
 
-public interface EmployeeTimeTrackService {
+import com.hcl.swipe.model.EmployeeTimeTrack;
 
+public interface EmployeeTimeTrackService {
+	int saveTimeTrack(EmployeeTimeTrack employeeTimeTrack);
+
+	int updateTimeTrack(EmployeeTimeTrack employeeTimeTrack);
 }

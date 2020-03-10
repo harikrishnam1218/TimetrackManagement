@@ -9,6 +9,7 @@ public class Employee {
 	private String onboardloc;
 	private String designation;
 	private Date onboarddate;
+	private String role;
 	
 	public Long getEid() {
 		return eid;
@@ -40,6 +41,13 @@ public class Employee {
 	public void setOnboarddate(Date onboarddate) {
 		this.onboarddate = onboarddate;
 	}
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,6 +56,7 @@ public class Employee {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((onboarddate == null) ? 0 : onboarddate.hashCode());
 		result = prime * result + ((onboardloc == null) ? 0 : onboardloc.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
 	}
 	@Override
@@ -79,14 +88,19 @@ public class Employee {
 				return false;
 		} else if (!onboardloc.equals(other.onboardloc))
 			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "Employee [eid=" + eid + ", name=" + name + ", onboardloc=" + onboardloc + ", designation=" + designation
-				+ ", onboarddate=" + onboarddate + "]";
+				+ ", onboarddate=" + onboarddate + ", role=" + role + "]";
 	}
-
+	
 	
 	
 }
